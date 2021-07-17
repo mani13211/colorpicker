@@ -18,7 +18,7 @@
   </head>
   <body>
     <div class="color-picker"></div>
-    <div class="panel-color" id="panel"></div>
+    <div id="panel" ></div>
     <h2 class="panel-color">This is just an example of color picker</h2>
     <h4 class="panel-color">changing color of class</h4>
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
@@ -27,6 +27,7 @@
       type="text/javascript"
     ></script>
     <script>
+        let panel = document.getElementById("panel");
       let heading = document.getElementsByClassName("panel-color");
       const pickr = Pickr.create({
         el: ".color-picker",
