@@ -13,5 +13,6 @@ body {
 h2, h4 {
   color: grey;
   text-align: center;
+  text-transform: capitalize;
 }
 /*# sourceMappingURL=style.css.map */
