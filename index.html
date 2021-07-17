@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>color picker</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/> 
+        <link rel="stylesheet" href="dist/css/style.css">
+    </head>
+    <body>
+    
+    <div class="color-picker"></div>
+    <div class="panel" id="panel"></div>
+    <h2 class="text"  >This is just an example of color picker</h2>
+    <h4 class="text" >changing color of class</h4>
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>        
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>  
+    <script >
+           
+            let panel =document.getElementById("panel")
+            let heading= document.getElementsByClassName("text");
+            const pickr = Pickr.create({
+                el: '.color-picker',
+                theme: 'classic', // or 'monolith', or 'nano'
+            
+                swatches: [
+                    'rgba(244, 67, 54, 1)',
+                    'rgba(233, 30, 99, 0.95)',
+                    'rgba(156, 39, 176, 0.9)',
+                    'rgba(103, 58, 183, 0.85)',
+                    'rgba(63, 81, 181, 0.8)',
+                    'rgba(33, 150, 243, 0.75)',
+                    'rgba(3, 169, 244, 0.7)',
+                    'rgba(0, 188, 212, 0.7)',
+                    'rgba(0, 150, 136, 0.75)',
+                    'rgba(76, 175, 80, 0.8)',
+                    'rgba(139, 195, 74, 0.85)',
+                    'rgba(205, 220, 57, 0.9)',
+                    'rgba(255, 235, 59, 0.95)',
+                    'rgba(255, 193, 7, 1)'
+                ],
+            
+                components: {
+            
+                    // Main components
+                    preview: true,
+                    opacity: true,
+                    hue: true,
+            
+                    // Input / output Options
+                    interaction: {
+                        hex: true,
+                        rgba: true,
+                        hsla: true,
+                        hsva: true,
+                        cmyk: true,
+                        input: true,
+                        clear: true,
+                        save: true
+                    }
+                }
+            });
+            pickr.on('change', (color) => {
+                let rgb =color.toRGBA();
+               this.panel.style.backgroundColor=`rgba(${rgb[0]},${rgb[1]},${rgb[2]},${rgb[3]})`
+
+             
+              for(var i = 0, length = heading.length; i < length; i++) {
+                heading[i].style.color=`rgba(${rgb[0]},${rgb[1]},${rgb[2]},${rgb[3]})`
+           }
+  
+            });
+        </script>
+    </body>
+</html>
